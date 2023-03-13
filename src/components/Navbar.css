@@ -1,0 +1,75 @@
+.navbar {
+  background-color: #e4853c;
+  color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.year {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.lessthan {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.mic_set {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.mic_set .icon:nth-child(1):hover {
+  background-color: #fefcf9;
+  border-radius: 50%;
+  color: #e4853c;
+  width: 50px;
+  height: 50px;
+}
+
+.mic_set .icon:nth-child(2):hover {
+  background-color: #fefcf9;
+  border-radius: 50%;
+  color: #e4853c;
+  width: 50px;
+  height: 50px;
+}
