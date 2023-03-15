@@ -87,58 +87,58 @@ function Home() {
 
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={0}>
-          {
-            displayCountries().length > 0 ? (
-              displayCountries().map((country) => (
-                <Grid item xs={6} sm={3} xl={3} key={country.country_id}>
-                  <Card variant="outline" sx={{ bgcolor: '#e4853c', minHeight: 180, m: 1 }}>
-                    <CardActionArea
+          {displayCountries()
+            .sort((a, b) => a.country_name.localeCompare(b.country_name))
+            .map((country) => (
+              <Grid item xs={6} sm={3} xl={3} key={country.country_id}>
+                <Card variant="outline" sx={{ bgcolor: '#e4853c', minHeight: 180, m: 1 }}>
+                  <CardActionArea
+                    id={country.country_name}
+                    sx={{ minHeight: 180, zIndex: '2' }}
+                    onClick={(e) => { HomeCardHandler(e); }}
+                  >
+                    <CardMedia
                       id={country.country_name}
-                      sx={{ minHeight: 180, zIndex: '2' }}
-                      onClick={(e) => { HomeCardHandler(e); }}
-                    >
-                      <CardMedia
-                        id={country.country_name}
-                        component="img"
-                        sx={{
-                          height: 80,
-                          width: 150,
-                          borderRadius: 2,
+                      component="img"
+                      sx={{
+                        height: 80,
+                        width: 150,
+                        borderRadius: 2,
 
-                          marginLeft: 'auto',
-                          marginRight: 'auto',
-                        }}
-                        src={country.country_flag}
-                        alt={country.country_id}
-                      />
-                      <CardContent id={country.country_name}>
-                        <Typography id={country.country_name} gutterBottom variant="h7" component="div" color="white" align="center">
-                          {country.country_name}
-                        </Typography>
-                        <Typography id={country.country_name} variant="body2" color="white" align="center">
-                          Population:
-                          {' '}
-                          {' '}
-                          {country.country_population.toLocaleString('en-US')}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              )))
-              : (
-                <Typography
-                  variant="h6"
-                  color="white"
-                  align="center"
-                  sx={{ marginLeft: 'auto', marginRight: 'auto' }}
-                >
-                  No country found please search again
-                </Typography>
-              )
-        }
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                      src={country.country_flag}
+                      alt={country.country_id}
+                    />
+                    <CardContent id={country.country_name}>
+                      <Typography id={country.country_name} gutterBottom variant="h7" component="div" color="white" align="center">
+                        {country.country_name}
+                      </Typography>
+                      <Typography id={country.country_name} variant="body2" color="white" align="center">
+                        Population:
+                        {' '}
+                        {' '}
+                        {country.country_population.toLocaleString('en-US')}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
+          {displayCountries().length === 0 && (
+            <Typography
+              variant="h6"
+              color="white"
+              align="center"
+              sx={{ marginLeft: 'auto', marginRight: 'auto' }}
+            >
+              No country found. Please search again.
+            </Typography>
+          )}
         </Grid>
       </Box>
+
     </Box>
   );
 }
